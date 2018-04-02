@@ -1,6 +1,6 @@
 # Price Formatter
 
-Python script revert number with looking good formatting.
+Python script revert the number with looking good formatting.
 
 
 # Requirements
@@ -8,14 +8,14 @@ Python script revert number with looking good formatting.
  - Python 3.5
  - For packages, please execute: ```bash pip install -r requirements.txt```
 
- # How to launch - Console mod
+ # How to launch - Console mode
 
  ```bash
   $ python format_price.py 123456789
   123 456 789
  ```
 
- # How to launch - Import as function
+ # How to launch - Import as a function
 
  ```python
 from format_price import format_price
