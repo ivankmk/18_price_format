@@ -25,4 +25,4 @@ if __name__ == '__main__':
             print('Please, use only numbers.')
 
     except IndexError:
-        print('Please, insert the number to apply formatting.')
+        print('Please, insert the number to apply formatting')
