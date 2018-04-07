@@ -3,8 +3,8 @@ import re
 
 
 def format_price(price):
-    zero_after_dot = re.compile("[0-9]*[.]?[0]*\Z")
-    one_dot = re.compile("[0-9]*[.]?[0-9]*\Z")
+    zero_after_dot = re.compile("[-]?[0-9]*[.]?[0]*\Z")
+    one_dot = re.compile("[-]?[0-9]*[.]?[0-9]*\Z")
     price = str(price)
 
     if bool(one_dot.match(price)):
