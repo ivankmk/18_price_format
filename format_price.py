@@ -1,19 +1,18 @@
 import sys
+import re
 
 
 def format_price(price):
+    zero_after_dot = re.compile("[0-9]*[.]?[0]*\Z")
+    one_dot = re.compile("[0-9]*[.]?[0-9]*\Z")
     price = str(price)
-    try:
-        if price.count('.') == 1:
-            if int(price.split('.')[1]) == 0:
-                return '{0:,}'.format(round(float(price))).replace(',', ' ')
-            else:
-                return '{0:,}'.format(float(price)).replace(',', ' ')
-        elif price.count('.') == 0:
-            return '{0:,}'.format(int(price)).replace(',', ' ')
+
+    if bool(one_dot.match(price)):
+        if bool(zero_after_dot.match(price)):
+            return '{0:,}'.format(round(float(price))).replace(',', ' ')
         else:
-            return None
-    except ValueError:
+            return '{0:,}'.format(float(price)).replace(',', ' ')
+    else:
         return None
 
 

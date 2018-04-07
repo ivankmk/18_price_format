@@ -24,9 +24,9 @@ print(format_price(number))
 
 # Tests
 
-To validate the script you can use test_format_price.py - just execute it like this:
+To validate the script you can use tests.py - just execute it like this:
 ```bash
- $ python test_format_price.py
+ $ python tests.py
 ```
 And you will see the test results.
 
