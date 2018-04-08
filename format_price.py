@@ -3,13 +3,13 @@ import sys
 
 def format_price(price):
     try:
-        price = float(price)
-        if price.is_integer():
-            return '{0:,}'.format(round(float(price))).replace(',', ' ')
-        else:
-            return '{0:,}'.format(float(price)).replace(',', ' ')
-    except ValueError:
+        price = round(float(price), 2)
+    except (ValueError, TypeError):
         return None
+    if price.is_integer():
+        return '{0:,}'.format(round(float(price))).replace(',', ' ')
+    else:
+        return '{0:,}'.format(float(price)).replace(',', ' ')
 
 
 if __name__ == '__main__':

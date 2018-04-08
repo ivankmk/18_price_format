@@ -10,11 +10,11 @@ class TestFormatPrice(unittest.TestCase):
 
     def test_decimals(self):
         test_value2 = 123456.123
-        self.assertEqual(format_price(test_value2), '123 456.123')
+        self.assertEqual(format_price(test_value2), '123 456.12')
 
     def test_big_decimal(self):
         test_value3 = 123456.123123123
-        self.assertEqual(format_price(test_value3), '123 456.123123123')
+        self.assertEqual(format_price(test_value3), '123 456.12')
 
     def test_zero_decimals(self):
         test_value4 = 123456.0
@@ -34,7 +34,7 @@ class TestFormatPrice(unittest.TestCase):
 
     def test_minus_and_float(self):
         test_value8 = -123456.888
-        self.assertEqual(format_price(test_value8), '-123 456.888')
+        self.assertEqual(format_price(test_value8), '-123 456.89')
 
     def test_string_arg(self):
         test_value9 = 'string'
@@ -43,6 +43,26 @@ class TestFormatPrice(unittest.TestCase):
     def test_mixed_string_arg(self):
         test_value10 = '123412string'
         self.assertEqual(format_price(test_value10), None)
+
+    def test_only_point(self):
+        test_value11 = '.123'
+        self.assertEqual(format_price(test_value11), '0.12')
+
+    def test_only_point_and_zero(self):
+        test_value12 = '.00000'
+        self.assertEqual(format_price(test_value12), '0')
+
+    def test_none(self):
+        test_value13 = None
+        self.assertEqual(format_price(test_value13), None)
+
+    def test_list(self):
+        test_value14 = [1, 2, 3]
+        self.assertEqual(format_price(test_value14), None)
+
+    def test_dict(self):
+        test_value15 = {'a': 1}
+        self.assertEqual(format_price(test_value15), None)
 
 
 if __name__ == '__main__':
